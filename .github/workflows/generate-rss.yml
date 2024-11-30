@@ -20,11 +20,19 @@ jobs:
     - name: Generate RSS Feed
       run: |
         python generate_rss.py
+        # Debug: Check if file was created
+        ls -l christmas_countdown.xml
     
     - name: Commit and Push
+      # Only run if file exists
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add christmas_countdown.xml
-        git commit -m "Update Christmas countdown RSS" || exit 0
-        git push
+        if [ -f christmas_countdown.xml ]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add christmas_countdown.xml
+          git commit -m "Update Christmas countdown RSS"
+          git push
+        else
+          echo "No RSS file generated"
+          exit 1
+        fi
