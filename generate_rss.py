@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 from datetime import date
 from xml.dom import minidom
+import os
 
 def generate_christmas_countdown_rss():
     """
@@ -32,3 +33,18 @@ def generate_christmas_countdown_rss():
     reparsed = minidom.parseString(rough_string)
     
     return reparsed.toprettyxml(indent="  ")
+
+# Main execution
+def main():
+    rss_content = generate_christmas_countdown_rss()
+    
+    # Ensure we're in the correct directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, 'christmas_countdown.xml')
+    
+    with open(file_path, 'w') as f:
+        f.write(rss_content)
+    print(f"RSS feed generated successfully at {file_path}")
+
+if __name__ == "__main__":
+    main()
