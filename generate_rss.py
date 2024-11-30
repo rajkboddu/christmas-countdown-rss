@@ -18,7 +18,7 @@ def generate_christmas_countdown_rss():
 
     # Channel metadata
     ET.SubElement(channel, 'title').text = 'Christmas 2024 Countdown'
-    ET.SubElement(channel, 'link').text = 'https://raw.githubusercontent.com/YOUR_USERNAME/christmas-countdown-rss/main/christmas_countdown.xml'
+    ET.SubElement(channel, 'link').text = 'https://raw.githubusercontent.com/rajkboddu/christmas-countdown-rss/main/christmas_countdown.xml'
     ET.SubElement(channel, 'description').text = f'{days_remaining} days to Christmas 2024'
 
     # Countdown item
