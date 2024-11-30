@@ -20,11 +20,11 @@ def generate_christmas_countdown_rss():
     # Channel metadata
     ET.SubElement(channel, 'title').text = 'Christmas 2024 Countdown'
     ET.SubElement(channel, 'link').text = 'https://raw.githubusercontent.com/rajkboddu/christmas-countdown-rss/main/christmas_countdown.xml'
-    ET.SubElement(channel, 'description').text = f'{days_remaining} days to Christmas 2024'
+    ET.SubElement(channel, 'description').text = f'{days_remaining}'
 
     # Countdown item
     item = ET.SubElement(channel, 'item')
-    ET.SubElement(item, 'title').text = f'{days_remaining} Days to Christmas 2024'
+    ET.SubElement(item, 'title').text = f'{days_remaining}'
     ET.SubElement(item, 'description').text = f'Countdown update: {days_remaining} days until Christmas!'
     ET.SubElement(item, 'pubDate').text = date.today().strftime('%a, %d %b %Y 00:00:00 GMT')
 
