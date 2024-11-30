@@ -7,6 +7,8 @@ on:
 
 jobs:
   generate-rss:
+    permissions:
+      contents: write  # Explicitly grant write permissions
     runs-on: ubuntu-latest
     
     steps:
@@ -20,19 +22,13 @@ jobs:
     - name: Generate RSS Feed
       run: |
         python generate_rss.py
-        # Debug: Check if file was created
-        ls -l christmas_countdown.xml
     
     - name: Commit and Push
-      # Only run if file exists
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        if [ -f christmas_countdown.xml ]; then
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add christmas_countdown.xml
-          git commit -m "Update Christmas countdown RSS"
-          git push
-        else
-          echo "No RSS file generated"
-          exit 1
-        fi
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add christmas_countdown.xml
+        git commit -m "Update Christmas countdown RSS"
+        git push
