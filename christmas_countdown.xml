@@ -3,11 +3,11 @@
   <channel>
     <title>Christmas 2024 Countdown</title>
     <link>https://raw.githubusercontent.com/rajkboddu/christmas-countdown-rss/main/christmas_countdown.xml</link>
-    <description>0</description>
+    <description>-1</description>
     <item>
-      <title>0</title>
-      <description>Countdown update: 0 days until Christmas!</description>
-      <pubDate>Wed, 25 Dec 2024 00:00:00 GMT</pubDate>
+      <title>-1</title>
+      <description>Countdown update: -1 days until Christmas!</description>
+      <pubDate>Thu, 26 Dec 2024 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
